@@ -1,18 +1,26 @@
-//Program that multiplies from 1 to 9.
+//Program - Stopwatch that starts with space.
 
 #include <stdio.h>
 
+#include <windows.h>
+//linux> #include <unistd.h>
+
 int main() {
 	
-	int i, j;
+	int h, min, seg, x;
 	
-	for(i = 1; i <= 9; i++){
-		for(j = 1; j <= 10; j++){
-			printf("%i x %i = %i.\n",i,j,i*j);
+	x = 1000;
+	
+	for(h = 0; h < 24; h++){
+		for(min = 0; min < 60; min++){
+			for(seg = 0; seg < 60; seg++){
+				printf("%02i:%02i:%01i\r",h,min,seg);
+				Sleep(x);
+			}
 		}
-		printf("\n");
-		system("pause");
 	}
+	
+
 
 	system("pause");
 	return 0;
