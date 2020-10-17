@@ -10,6 +10,8 @@ int main() {
 		for(j = 1; j <= 10; j++){
 			printf("%i x %i = %i.\n",i,j,i*j);
 		}
+		printf("\n");
+		system("pause");
 	}
 
 	system("pause");
