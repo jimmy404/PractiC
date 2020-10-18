@@ -1,27 +1,24 @@
-//Program - Stopwatch that starts with space.
+//Program - Factorial of a number / Code debugging.
 
 #include <stdio.h>
 
-#include <windows.h>
-//linux> #include <unistd.h>
-
 int main() {
 	
-	int h, min, seg, x;
+	int x, i, fact;
 	
-	x = 1000;
+	fact = 1;
 	
-	for(h = 0; h < 24; h++){
-		for(min = 0; min < 60; min++){
-			for(seg = 0; seg < 60; seg++){
-				printf("%02i:%02i:%01i\r",h,min,seg);
-				Sleep(x);
-			}
-		}
+	printf("Add a number to calculate the factorial: ");
+	scanf("%i",&x);
+	
+	for(i = 1; i <= x; i++){
+		fact = fact * i;
 	}
 	
+	printf("The factorial of %i is %i.\n",x,fact);
 
 
 	system("pause");
 	return 0;
+
 }
