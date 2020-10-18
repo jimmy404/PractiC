@@ -1,30 +1,27 @@
-//Program - Program - Fibonacci sequence.
+//Program - Program - Check if a number is Prime.
 
 #include <stdio.h>
 
 int main() {
 	
-	int x, y, res, n, i;
+	int n, i, j, aux;
 	
-	printf ("Enter a number for the Fibonacci sequence: ");
-	scanf ("%i",&n);
+	printf("Enter any number: ");
+	scanf("%i", &n);
 	
-	i = 3;
-	x = 0;
-	y = 1;
+	j = 0;
 	
-	if(n == 1){
-		printf("0 ");
-	}else{
-		printf("0, 1, ");
+	for(i = 2; i < n; i++){
+		aux = n % i;
+		if(aux == 0){
+			j = 1;
+		}
 	}
 	
-	while (i <= n){
-		res = x + y;
-		printf("%i, ",res);
-		x = y;
-		y = res;
-		i++;
+	if(j == 1){
+		printf("The number %i is not prime.\n",n);
+	}else{
+		printf("The number %i is prime.\n",n);	
 	}
 	
 	system ("pause");
