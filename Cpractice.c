@@ -1,50 +1,28 @@
-//Program - "Check if two prime numbers are different"
+//Program - "Change the value of variables with a function"
 
 #include <stdio.h>
-
-int prime(int a);
+void change(int *a, int *b);
 
 int main(){
 	
-	int x, y, prim1, prim2;
+	int x, y;
 	
-	printf("Enter the first number: ");
-	scanf("%i",&x);
+	x = 5;
+	y = 10;
 	
-	printf("Enter the second number: ");
-	scanf("%i",&y);
+	change(&x, &y);
 	
-	prim1 = prime(x);
-	prim2 = prime(y);
-	
-	if(prim1 == 0){
-		printf("The number %i is prime.\n\n", x);
-	}else{
-		printf("The number %i is NOT a prime.\n\n", x);
-	}
-	
-		if(prim2 == 0){
-		printf("The number %i is prime.\n\n", y);
-	}else{
-		printf("The number %i is NOT a prime.\n\n", y);
-	}
+	printf("The current value of X is %i and the current value of Y is %i.\n\n",x,y);
 
 	system("pause");
 	return 0;
 }
 
-int prime(int a){
+void change(int *a, int *b){
+	int aux;
 	
-	int i, j, aux;
-	j = 0;
-	
-	for(i = 2; i < a && j == 0; i++){
-		aux = a %i;
-		if(aux == 0){
-			j = 1;	
-		}
-	}
-	
-	return j;
+	aux = *a;
+	*a = *b;
+	*b = aux;
 }
 
