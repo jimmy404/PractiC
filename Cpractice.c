@@ -1,30 +1,37 @@
-//Program - Program - Check if a number is Prime.
+//Program - "Calculate factorial with reusable functions"
 
 #include <stdio.h>
 
-int main() {
+int factorial(int a);
+
+int main(){
 	
-	int n, i, j, aux;
+	int x, y, fact1, fact2;
 	
-	printf("Enter any number: ");
-	scanf("%i", &n);
+	printf("Enter the first number: ");
+	scanf("%i",&x);
 	
-	j = 0;
+	printf("Enter the second number: ");
+	scanf("%i",&y);
 	
-	for(i = 2; i < n; i++){
-		aux = n % i;
-		if(aux == 0){
-			j = 1;
-		}
-	}
+	fact1 = factorial(x);
+	fact2 = factorial(y);
 	
-	if(j == 1){
-		printf("The number %i is not prime.\n",n);
-	}else{
-		printf("The number %i is prime.\n",n);	
-	}
-	
-	system ("pause");
+	printf("The result of the factorial of x is %i.\n", fact1);
+	printf("The result of the factorial of y is %i.\n", fact2);
+	system("pause");
 	return 0;
+}
+
+int factorial(int a){
+	
+	int i, aux;
+	aux = 1;
+	
+	for( i = 1; i <= a; i++){
+		aux *= i;	
+	}
+	
+	return aux;
 }
 
