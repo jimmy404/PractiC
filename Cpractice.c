@@ -1,24 +1,41 @@
-//Program - "A number is entered per vector and then it is read"
+//Program - "Order a vector from smallest to largest using a function"
 
 #include <stdio.h>
+void orderNumbers(int a[]);
+void print(int x[]);
 
 int main(){
 	
-	int v[10];
-	int i;
+	int v[10] = {15,9,2,22,14,32,6,47,25,7};
 	
-	for(i = 0; i < 10; i++){
-		printf("Give value to the vector in the position %i: ",i);
-		scanf("%i",&v[i]);
-	}
-	
-	for(i = 0; i < 10; i++){
-		printf("%i ",v[i]);
-	}
-	
-	printf("The value of position 0 is: %i.\n\n",v[2]);
+	orderNumbers(v);
+	print(v);
+
 	
 	system("pause");
 	return 0;
+}
+
+void orderNumbers(int a[]){
+	int i, j, aux;
+	
+	for(i = 0; i < 10; i++){
+		for(j = i; j < 10; j++){
+			if(a[i] > a[j]){
+				aux = a[i];
+				a[i] = a[j];
+				a[j] = aux;
+			}
+		}
+	}
+}
+
+void print(int x[]){
+	int i;
+	
+	for(i = 0; i < 10; i++){
+		printf("%i, ",x[i]);
+	}
+	printf("\n\n");
 }
 
