@@ -1,41 +1,64 @@
-//Program - "Order a vector from smallest to largest using a function"
+//Program - "Calculate the probabilities that each of the numbers comes out with a vector using pointers."
 
 #include <stdio.h>
-void orderNumbers(int a[]);
-void print(int x[]);
+void roll(int *v);
+void read(int *v);
 
 int main(){
 	
-	int v[10] = {15,9,2,22,14,32,6,47,25,7};
+	int v[] = {0,0,0,0,0,0};
 	
-	orderNumbers(v);
-	print(v);
+	roll(v);
+	read(v);
 
-	
 	system("pause");
 	return 0;
 }
 
-void orderNumbers(int a[]){
-	int i, j, aux;
+void roll(int *v){
+	srand(time(NULL));
+	int i, aux;
 	
-	for(i = 0; i < 10; i++){
-		for(j = i; j < 10; j++){
-			if(a[i] > a[j]){
-				aux = a[i];
-				a[i] = a[j];
-				a[j] = aux;
+	for( i = 0; i < 10000; i++){
+		aux = rand()%6;
+		
+		switch(aux){
+			case 0: {
+				*(v+aux) += 1;
+				break;
+			}
+			case 1: {
+				*(v+aux) += 1;
+				break;
+			}
+			case 2: {
+				*(v+aux) += 1;
+				break;
+			}
+			case 3: {
+				*(v+aux) += 1;
+				break;
+			}
+			case 4: {
+				*(v+aux) += 1;
+				break;
+			}
+			case 5: {
+				*(v+aux) += 1;
+				break;
 			}
 		}
 	}
 }
 
-void print(int x[]){
+void read(int *v){
 	int i;
+	float x;
 	
-	for(i = 0; i < 10; i++){
-		printf("%i, ",x[i]);
+	
+	for(i = 0; i < 6; i++){
+		x = (*(v+i)*100)/10000.;
+		printf("The probability that the number %i comes out is %f.\n:",i+1,x);
 	}
-	printf("\n\n");
 }
 
