@@ -1,28 +1,24 @@
-//Program - "Change the value of variables with a function"
+//Program - "A number is entered per vector and then it is read"
 
 #include <stdio.h>
-void change(int *a, int *b);
 
 int main(){
 	
-	int x, y;
+	int v[10];
+	int i;
 	
-	x = 5;
-	y = 10;
+	for(i = 0; i < 10; i++){
+		printf("Give value to the vector in the position %i: ",i);
+		scanf("%i",&v[i]);
+	}
 	
-	change(&x, &y);
+	for(i = 0; i < 10; i++){
+		printf("%i ",v[i]);
+	}
 	
-	printf("The current value of X is %i and the current value of Y is %i.\n\n",x,y);
-
+	printf("The value of position 0 is: %i.\n\n",v[2]);
+	
 	system("pause");
 	return 0;
-}
-
-void change(int *a, int *b){
-	int aux;
-	
-	aux = *a;
-	*a = *b;
-	*b = aux;
 }
 
