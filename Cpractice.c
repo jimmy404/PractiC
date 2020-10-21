@@ -1,40 +1,49 @@
-//Program - "Create a matrix and read it on the screen."
+//Program - "Compare two arrays."
 
 #include <stdio.h>
-void addElements(int matrix[][5]);
-void readElements(int matrix[][5]);
+void addElements(int array[][2]);
+void compare(int array1[][2], int array2[][2]);
 
 int main(){
 	
-	int matrix[5][5];
+	int array1[2][2];
+	int array2[2][2];
 	
-	addElements(matrix);
-	readElements(matrix);
+	addElements(array1);
+	addElements(array2);
+	
+	compare(array1,array2);
 
 	system("pause");
 	return 0;
 }
 
-void addElements(int matrix[][5]){
+void addElements(int array[][2]){
 	int i, j;
-	srand(time(NULL));
 	
-	for(i = 0; i < 5; i++){
-		for(j = 0; j < 5; j++){
-			matrix[i][j] = rand()%10;
+	for(i = 0; i < 2; i++){
+		for(j = 0; j < 2; j++){
+			printf("Value[%i][%i]: ",i+1,j+1);
+			scanf("%i",&array[i][j]);
 		}
 	}
 }
 
-void readElements(int matrix[][5]){
-	int i, j;
-	srand(time(NULL));
+void compare(int array1[][2], int array2[][2]){
+	int i, j, aux;
+	aux = 0;
 	
-	for(i = 0; i < 5; i++){
-		for(j = 0; j < 5; j++){
-			printf("%i ",matrix[i][j]);
+	for(i = 0; i < 2 && aux == 0; i++){
+		for(j = 0; j < 2 && aux == 0; j++){
+			if(array1[i][j] != array2[i][j]){
+				aux = 1;
+			}
 		}
-		printf("\n");
+	}
+	if(aux == 0){
+		printf("The arrays are equal.\n\n");
+	}else{
+		printf("The arrays are NOT equal.\n\n");
 	}
 }
 
