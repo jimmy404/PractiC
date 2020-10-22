@@ -1,49 +1,28 @@
-//Program - "Compare two arrays."
+//Program - "Compare two character strings."
 
 #include <stdio.h>
-void addElements(int array[][2]);
-void compare(int array1[][2], int array2[][2]);
+#include <string.h>
 
 int main(){
 	
-	int array1[2][2];
-	int array2[2][2];
+	char ch1[7];
+	char ch2[7];
 	
-	addElements(array1);
-	addElements(array2);
+	printf("First sentence: ");
+	fgets(ch1,7,stdin);
 	
-	compare(array1,array2);
+	printf("Second sentence: ");
+	fflush(stdin);
+	fgets(ch2,7,stdin);
+	
+	if(strcmp(ch1,ch2) == 0){
+		printf("The two sentences are the same.\n");
+	}else{
+		printf("The two sentences are NOT the same.\n\n");
+	}
+
 
 	system("pause");
 	return 0;
-}
-
-void addElements(int array[][2]){
-	int i, j;
-	
-	for(i = 0; i < 2; i++){
-		for(j = 0; j < 2; j++){
-			printf("Value[%i][%i]: ",i+1,j+1);
-			scanf("%i",&array[i][j]);
-		}
-	}
-}
-
-void compare(int array1[][2], int array2[][2]){
-	int i, j, aux;
-	aux = 0;
-	
-	for(i = 0; i < 2 && aux == 0; i++){
-		for(j = 0; j < 2 && aux == 0; j++){
-			if(array1[i][j] != array2[i][j]){
-				aux = 1;
-			}
-		}
-	}
-	if(aux == 0){
-		printf("The arrays are equal.\n\n");
-	}else{
-		printf("The arrays are NOT equal.\n\n");
-	}
 }
 
