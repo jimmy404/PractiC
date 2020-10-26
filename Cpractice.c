@@ -1,23 +1,49 @@
-//Program - Structures - Gives value to 10 different structures through a for.
+//Program - Structures - Registration Form.
 
 #include <stdio.h>
-#include <string.h>
 
 typedef struct{
-	int pages;
-	char name[50];
-	float price;
-}book;
+	char name[60];
+	char job[50];
+	int age;
+}reg;
 
 int main(){
 	
-	int i;
-	book book[10];
+	reg form1, form2;
 	
-	for (i = 0; i < 10; i++){
-		book[i].price = 20 + i;
-		printf("The price of the structure %i is %f.\n",i+1,book[i].price);
-	}
+	printf("Enter values for form 1: \n");
+	printf("Enter your name: ");
+	fgets(form1.name,60,stdin);
+	
+	printf("Enter your job: ");
+	fflush(stdin);
+	fgets(form1.job,50,stdin);
+	
+	printf("Enter your age: ");
+	scanf("%i",&form1.age);
+	
+	printf("Enter values for form 2: \n");
+	printf("Enter your name: ");
+	fflush(stdin);
+	fgets(form2.name,60,stdin);
+	
+	printf("Enter your job: ");
+	fflush(stdin);
+	fgets(form2.job,50,stdin);
+	
+	printf("Enter your age: ");
+	scanf("%i",&form2.age);
+
+	printf("The values are: \n");
+	printf("The name of form 1 is: %s", form1.name);
+	printf("The name of form 2 is: %s", form2.name);
+	
+	printf("The form 1 job is: %s", form1.job);
+	printf("The form 2 job is: %s", form2.job);
+	
+	printf("The age of form 1 is: %i\n", form1.age);
+	printf("The age of form 2 is: %i\n", form2.age);
 
 	system("pause");
 	return 0;
